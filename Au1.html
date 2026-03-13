@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>ฝ่ายโสตทัศนศึกษาโรงเรียนหนองหญ้าไซวิทยา</title>
+    <style>
+        body {
+            font-family: "Prompt", sans-serif;
+            margin: 0;
+            background: linear-gradient(270deg, #1e3c72, #2a5298, #0f2027);
+            background-size: 600% 600%;
+            animation: bgMove 20s ease infinite;
+            color: white;
+        }
+        @keyframes bgMove {
+            0% {background-position:0% 50%}
+            50% {background-position:100% 50%}
+            100% {background-position:0% 50%}
+        }
+        header {
+            background: rgba(0,0,0,0.6);
+            padding: 30px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            letter-spacing: 3px;
+            text-shadow: 0 0 15px #00f0ff;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #111;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 25px;
+            transition: all 0.3s;
+            position: relative;
+            cursor: pointer;
+        }
+        nav a:hover {
+            background: #00f0ff;
+            color: #111;
+        }
+        section {
+            padding: 50px;
+            text-align: center;
+            min-height: 300px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        section.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+        .gallery div {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 15px;
+            width: 250px;
+            transition: transform 0.4s, box-shadow 0.4s;
+        }
+        .gallery div:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 0 20px #00f0ff;
+        }
+        footer {
+            background: #111;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>งานโสตทัศนศึกษาโรงเรียนหนองหญ้าไซวิทยา</h1>
+        <p>พวกเราพร้อมทำงานเพื่อส่วนรวมเสมอ</p>
+    </header>
+    <nav>
+        <a onclick="showPage('home')">หน้าแรก</a>
+        <a onclick="showPage('activity')">กิจกรรม</a>
+        <a onclick="showPage('work')">ผลงาน</a>
+        <a onclick="showPage('contact')">ติดต่อ</a>
+    </nav>
+
+    <section id="home" class="active">
+        <h2>ยินดีต้อนรับ</h2>
+        <p>นี่คือเว็บงานโสตทัศนศึกษาโรงเรียนหนองหญ้าไซวิทยา</p>
+    </section>
+
+    <section id="activity">
+        <h2>กิจกรรม</h2>
+        <p>รวมกิจกรรมต่างๆ ที่งานโสตฯ ได้ดูแล</p>
+    </section>
+
+    <section id="work">
+        <h2>แกลเลอรีผลงานต่างๆในแต่ล่ะกิจกรรม</h2>
+        <div class="gallery">
+            <div>
+                <h3>งานถ่ายภาพ</h3>
+                <p>รวมภาพกิจกรรมโรงเรียน</p>
+            </div>
+            <div>
+                <h3>งานวิดีโอ</h3>
+                <p>บันทึกเหตุการณ์สำคัญ</p>
+            </div>
+            <div>
+                <h3>งานเสียง/ภาพ</h3>
+                <p>ระบบเสียง/ภาพงานต่างๆ</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>ติดต่อ</h2>
+        <p>สามารถติดต่อทีมงานโสตฯ ได้ที่ห้องโสตฯ โรงเรียน</p>
+    </section>
+
+    <footer>
+        © 2026 งานโสตฯ โรงเรียน | จัดทำโดยนักเรียน
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            // ซ่อนทุกหน้า
+            document.querySelectorAll("section").forEach(sec => {
+                sec.classList.remove("active");
+            });
+            // แสดงหน้าที่เลือก
+            document.getElementById(pageId).classList.add("active");
+        }
+    </script>
+</body>
+</html>
